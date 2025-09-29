@@ -1,0 +1,155 @@
+# =============================================================================
+# Vision MCP Server - Git Ignore Configuration
+# =============================================================================
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Build output
+build/
+dist/
+out/
+lib/
+*.tsbuildinfo
+
+# Environment variables & Secrets
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.p12
+*.pfx
+secrets/
+config/secrets/
+
+# API Keys & Credentials
+*api-key*
+*secret*
+*credential*
+*token*
+*.credentials
+
+# IDE & Editor files
+.vscode/
+.idea/
+*.code-workspace
+*.sublime-*
+.atom/
+.brackets.json
+
+# OS files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Logs & Debug files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+logs/
+*.log.*
+
+# Test files & Coverage
+coverage/
+.nyc_output/
+.coverage/
+*.lcov
+test-results/
+junit.xml
+
+# Cache directories
+.cache/
+.parcel-cache/
+.next/
+.nuxt/
+.vuepress/dist/
+.serverless/
+.fusebox/
+
+# Temporary files
+*.swp
+*.swo
+.tmp/
+tmp/
+temp/
+*.tmp
+*.temp
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variable files
+.env.development.local
+.env.test.local
+.env.production.local
+.env.local
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# Security & Backup files
+*.backup
+*.bak
+*.orig
+*~
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# =============================================================================
+# Security Notice:
+# This .gitignore is designed to prevent accidental commits of:
+# - API keys and secrets
+# - Environment configurations
+# - Build artifacts
+# - Cache files
+# - Personal IDE settings
+# - System files
+# =============================================================================

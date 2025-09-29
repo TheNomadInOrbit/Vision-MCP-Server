@@ -1,0 +1,68 @@
+{
+  "name": "@thenomadinorbit/vision-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for AI vision analysis via OpenRouter",
+  "type": "module",
+  "main": "build/main.js",
+  "types": "build/main.d.ts",
+  "bin": {
+    "vision-mcp": "./build/main.js"
+  },
+  "files": [
+    "build",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "tsc && node -e \"require('fs').chmodSync('build/main.js', '755')\"",
+    "prepare": "npm run build",
+    "start": "node build/main.js",
+    "dev": "npm run build && npm start",
+    "clean": "rm -rf build",
+    "lint": "tsc --noEmit",
+    "test": "npm run build && echo 'Testing server startup...' && node -e \"const { spawn } = require('child_process'); const server = spawn('node', ['build/main.js']); setTimeout(() => { server.kill(); console.log('Server test passed'); }, 2000);\""
+  },
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "node-fetch": "^3.3.2",
+    "sharp": "^0.34.4"
+  },
+  "peerDependencies": {
+    "@modelcontextprotocol/sdk": "^1.18.0"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/node": "^24.6.0",
+    "@types/sharp": "^0.31.1",
+    "typescript": "^5.9.2"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "vision",
+    "vision-analysis",
+    "claude",
+    "openrouter",
+    "ai",
+    "image-analysis",
+    "gpt-4",
+    "computer-vision",
+    "typescript",
+    "anthropic",
+    "openai",
+    "multimodal"
+  ],
+  "author": "TheNomadInOrbit",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TheNomadInOrbit/vision-mcp-server.git"
+  },
+  "homepage": "https://github.com/TheNomadInOrbit/vision-mcp-server#readme",
+  "bugs": {
+    "url": "https://github.com/TheNomadInOrbit/vision-mcp-server/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
