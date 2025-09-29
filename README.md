@@ -274,8 +274,8 @@ Error: OPENROUTER_API_KEY environment variable is required
 **Why this happens:** You're trying to run `vision-mcp` directly from the command line. This MCP server is designed to be used **through an MCP client** (like Claude Code), not run directly.
 
 **The Fix:** 
-1. ✅ **Correct**: Configure it in your MCP client (Step 3 above)
-2. ❌ **Incorrect**: Running `vision-mcp` directly in terminal
+1. **Correct**: Configure it in your MCP client (Step 3 above)
+2. **Incorrect**: Running `vision-mcp` directly in terminal
 
 **Quick test only:** If you want to test the installation, use:
 ```bash
