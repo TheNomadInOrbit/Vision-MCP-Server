@@ -103,10 +103,11 @@ Add this server configuration to your MCP client:
 
 ### Step 4: Test Your Installation
 
-Run this command to verify everything is working:
+**Important**: The `vision-mcp` command requires an OpenRouter API key to run. You cannot test it directly without configuration.
 
+#### Quick Test (with your API key):
 ```bash
-vision-mcp
+OPENROUTER_API_KEY="your_api_key_here" vision-mcp --help
 ```
 
 You should see the server start up with logs like:
@@ -118,6 +119,27 @@ Vision MCP Server is running on stdio
 ```
 
 Press `Ctrl+C` to stop the test.
+
+#### What happens if you run `vision-mcp` without the API key?
+```bash
+vision-mcp
+```
+
+You'll get this error (this is **normal and expected**):
+```
+Error: OPENROUTER_API_KEY environment variable is required
+```
+
+**This means the installation worked!** The server is just protecting you from running without proper configuration.
+
+#### Verify Installation Status:
+```bash
+# Check if the command is available
+which vision-mcp
+
+# Check if the package is installed
+npm list -g @thenomadinorbit/vision-mcp-server
+```
 
 ## 🔧 Configuration Options
 
@@ -196,6 +218,23 @@ List all available vision models from OpenRouter
 
 Once configured, you can ask your AI assistant to analyze images like this:
 
+### Real-World Example
+
+**You:** "Can you analyze this image: https://example.com/image.jpg"
+
+**What happens behind the scenes:**
+1. Your AI assistant receives your request
+2. It calls the `analyze_image` tool from this MCP server
+3. This server downloads the image and sends it to OpenRouter's vision model
+4. The vision model analyzes the image
+5. Results are returned to your AI assistant
+6. Your AI assistant presents the analysis to you
+
+**You see:** Detailed image analysis from your AI assistant
+**You don't see:** All the technical MCP communication happening behind the scenes
+
+### Example Conversations
+
 **Analyze an image from URL:**
 > "Can you analyze this image: https://example.com/image.jpg"
 
@@ -207,6 +246,9 @@ Once configured, you can ask your AI assistant to analyze images like this:
 
 **Detailed analysis:**
 > "Analyze this image and tell me about the objects, colors, and mood: https://example.com/artwork.jpg"
+
+**Compare images:**
+> "Can you analyze these two images and tell me the differences: image1.jpg and image2.jpg"
 
 ## Environment Variables
 
@@ -220,6 +262,35 @@ You can customize the server with these environment variables:
 
 ## Troubleshooting
 
+### Common Mistakes
+
+#### "I installed it but `vision-mcp` gives an error!"
+
+**The Error:**
+```
+Error: OPENROUTER_API_KEY environment variable is required
+```
+
+**Why this happens:** You're trying to run `vision-mcp` directly from the command line. This MCP server is designed to be used **through an MCP client** (like Claude Code), not run directly.
+
+**The Fix:** 
+1. ✅ **Correct**: Configure it in your MCP client (Step 3 above)
+2. ❌ **Incorrect**: Running `vision-mcp` directly in terminal
+
+**Quick test only:** If you want to test the installation, use:
+```bash
+OPENROUTER_API_KEY="your_key" vision-mcp --help
+```
+
+#### "How do I actually use this?"
+
+This server doesn't have a web interface or CLI commands. It's an **MCP server** that adds vision capabilities to your AI assistant through the MCP protocol.
+
+**Workflow:**
+1. Install the server globally (`npm install -g @thenomadinorbit/vision-mcp-server`)
+2. Configure it in your MCP client (Claude Desktop, etc.)
+3. Ask your AI assistant to analyze images
+4. The AI assistant uses this server behind the scenes
 
 ### Command not found: `vision-mcp`
 
