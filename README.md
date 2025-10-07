@@ -1,6 +1,6 @@
 # Vision MCP Server
 
-Ever wanted to use a model like GLM-4.5 or other great AI models that just don't have vision capabilities? This MCP server solves that problem by adding vision capabilities to any model through OpenRouter's vision models.
+Ever wanted to use a model like GLM-4.6 or other great AI models that just don't have vision capabilities? This MCP server solves that problem by adding vision capabilities to any model through OpenRouter's vision models.
 
 ## The Problem
 
