@@ -1,3 +1,5 @@
+[![MCP Badge](https://lobehub.com/badge/mcp/thenomadinorbit-vision-mcp-server?style=for-the-badge)](https://lobehub.com/mcp/thenomadinorbit-vision-mcp-server)
+
 # Vision MCP Server
 
 Ever wanted to use a model like GLM-4.6 or other great AI models that just don't have vision capabilities? This MCP server solves that problem by adding vision capabilities to any model through OpenRouter's vision models.
